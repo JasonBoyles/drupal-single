@@ -6,7 +6,7 @@ include_recipe 'drupal'
 begin
   t = resources(:template => "#{node['apache']['dir']}/sites-available/drupal.conf")
   t.source "drupal.conf.erb"
-  t.cookbook "rax-drupal-dir"
+  t.cookbook "patch-drupalconf"
   t.variables(:params => { :server_name => node['fqdn'],
                            :server_aliases => node['fqdn'],
                            :docroot => node['drupal']['dir'],
